@@ -1,0 +1,31 @@
+<% include ./partials/dashboard %>
+
+<div class="ui container dashhh">
+    <form action="/dashboard/rates/package/<%=pack_id%>?_method=PUT" method="POST" class="ui form">
+        <div class="two fields">
+            <div class="field">
+                <label>New Package</label>
+                <input type="text" name="pack[package]" value="<%=package.package%>" required>
+            </div>
+            <div class="field">
+                <label>Rate</label>
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        $
+                    </div>
+                    <input type="number" name="pack[rate]" value="<%=package.rate%>" required>
+                    <div class="ui basic label">.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="one field">
+            <div class="field">
+                <label>Size</label>
+                <input type="text" name="pack[size]" value="<%=package.size%>" required>
+            </div>
+        </div>
+        <button class="ui teal button">Add</button>
+    </form>
+</div>
+
+<% include ./partials/footer %>

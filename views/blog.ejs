@@ -1,0 +1,71 @@
+<% include ./partials/header %>
+
+<div id="Homejumbotron">
+    <% if(currentUser){ %>
+        <div class="ui stackable grid">
+            <div class="sixteen wide column">
+                <div class="ui centered header">
+                    <div class="header">
+                        <div id="blogH">Hello <%=currentUser.username%> <br>best articles for you</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="ui stackable grid">
+            <div class="sixteen wide column">
+                <div class="ui centered header">
+                    <div class="header">
+                        <div id="blogH">Hello<br>best articles for you</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+</div>
+
+<div id="blogMain" class="ui main text">
+    <div class="ui centered nested stackable grid container">
+        <div class="eleven wide column">
+        <% blogs.forEach(function(blog){ %>
+            <div class="ui huge header">
+                <a class="header"><%=blog.name%></a>
+            </div>
+            <div class="item">
+                <div class="image">
+                    <img class="ui rounded huge image" src="<%=blog.image%>">
+                </div>
+                <div class="content">
+                    <div class="meta">
+                        <span><%=blog.meta%></span>
+                    </div>
+                    <br>
+                    <div class="description">
+                        <p>
+                            <%=blog.description.substring(0, 800)%>.........
+                        </p>
+                    </div>
+                    <br>
+                    <div class="extra">
+                        <a class="ui floated basic violet button" href="/blog/<%=blog._id%>">
+                              Read More <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+       <% }) %>
+       </div>
+       <div class="five wide column">
+           <form>
+                <div class="ui fluid icon input loading">
+                   <input type="text" placeholder="Search tracking code...">
+                   <i class="search icon"></i>
+                </div>
+                <button class="ui grey huge button fluid">Check</button>
+           </form>
+       </div>
+    </div>
+</div>
+  
+<% include ./partials/blogfooter2 %>
+<% include ./partials/footer %>

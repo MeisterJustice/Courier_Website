@@ -1,0 +1,20 @@
+<% include ./partials/header %>
+<main>
+    <div id="showComment" class="ui container">
+        <div class="ui header centered">
+            <div class="huge header">
+                Edit your comment
+            </div>
+        </div>
+      <form id="showComment2" action="/blog/<%=blog_id%>/comments/<%=comment._id%>?_method=PUT" method="POST" class="ui reply form">
+        <div class="field">
+          <textarea name="blog[text]"><%=comment.text%></textarea>
+        </div>
+        <button class="ui primary submit labeled icon button">
+          <i class="icon edit"></i> Add Comment
+        </button>
+      </form>
+    </div>
+</main>
+<% include ./partials/blogfooter2 %>
+<% include ./partials/footer %>

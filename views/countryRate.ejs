@@ -1,0 +1,25 @@
+<% include ./partials/dashboard %>
+
+<div class="ui container dashhh">
+    <form action="/dashboard/rates/country" method="POST" class="ui form">
+        <div class="two fields">
+            <div class="field">
+                <label>New Package</label>
+                <input type="text" name="pack[country]" required>
+            </div>
+            <div class="field">
+                <label>Rate</label>
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        $
+                    </div>
+                    <input type="number" name="pack[rate]" required>
+                    <div class="ui label">.00</div>
+                </div>
+            </div>
+        </div>
+        <button class="ui teal button">Add</button>
+    </form>
+</div>
+
+<% include ./partials/footer %>

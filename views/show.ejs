@@ -1,0 +1,68 @@
+<% include ./partials/header %>
+
+<main>
+  <div id="show" class="ui container">
+      <h1 style="font-size: 3em;" class="ui center aligned header"><%=blog.name%></h1>
+      <br>
+  </div>
+  <div class="ui items container">
+    <div class="item">
+      <div class="content">
+        <img class="ui centered rounded image" src="<%=blog.image%>">
+        <div class="description">
+          <br>
+          <p><%=blog.description%></p>
+          <p></p>
+        </div>
+        <div class="extra">
+          <span>Posted on <%=blog.created.toDateString()%></span>
+          <a id="click"><i class="green check icon"></i></a>
+          <span id="votes"></span> Votes
+          <a id="edit" class="ui orange basic button" href="/blog/<%=blog._id%>/edit">Edit</a>
+          <form id="delete" method="POST" action="/blog/<%=blog._id%>?_method=DELETE">
+              <button class="ui red basic button">Delete</button>
+          </form>
+          <a class="ui teal basic button" href="/blog/<%=blog._id%>/comments/new">Comment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--COMMENT CODE-->
+  <div id="comment" class="ui container">
+    <div class="ui centered huge header">
+      <h2 class="header">
+        <span class="blogComment"><%=blog.comments.length%></span> opinions on this post
+      </h2>
+    </div>
+    <% blog.comments.forEach(function(comment) { %>
+      <div class="ui comments">
+        <div class="comment">
+          <!--<a class="avatar">-->
+          <!--  <img src="/images/avatar/small/joe.jpg">-->
+          <!--</a>-->
+          <div class="content">
+            <a class="author"><%=comment.author.username%></a>
+            <div class="metadata">
+              <div class="date"><%=comment.created.toDateString()%></div>
+            </div>
+            <div class="text">
+              <p><%=comment.text%></p>
+            </div>
+            <% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
+            <div class="actions">
+              <a href="/blog/<%=blog._id%>/comments/<%=comment._id%>/edit" class="reply">Edit</a>
+              <form id="hhh" action="/blog/<%=blog._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                <button class="ui reply basic gray very tiny button">Delete</button>
+              </form>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</main>
+
+<% include ./partials/blogfooter2 %>
+<% include ./partials/footer %>

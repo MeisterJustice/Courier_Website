@@ -1,0 +1,112 @@
+<% include ./partials/dashboard %>
+
+<div id="dashh" class="ui container">
+    <div class="ui header">
+        <h1 id="dash" class="header">List rating</h1>
+    </div>
+    <h2><a href="/dashboard/rates/package/table" class="ui button basic red">Create</a> package rates</h2>
+    <table class="ui red table">
+        <thead>
+            <tr>
+                <th>Package type</th>
+                <th>size</th>
+                <th>Rate</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pack.forEach(function(type) { %>
+            <tr>
+                <td><%=type.package%></td>
+                <td><%=type.size%></td>
+                <td>$<%=type.rate%></td>
+                <td>
+                    <a class="ui small right floated blue button" href="/dashboard/rates/package/<%=type._id%>/edit">update</a>
+                    <form action="/dashboard/rates/package/<%=type._id%>?_method=DELETE" method="POST">
+                        <button class="ui small right floated red button">delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+        <tfoot class="full-width">
+            <tr>
+                <th></th>
+                <th colspan="4">
+                    <form action="/dashboard/rates/package?_method=DELETE" method="POST">
+                        <button class="ui small button">Delete table</button>
+                    </form>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    <h2><a href="/dashboard/rates/country/table" class="ui button basic blue">Create</a> standard rate per courier by country</h2>
+    <table class="ui blue table">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>USA</td>
+                <td>$75</td>
+            </tr>
+        </tbody>
+        <tfoot class="full-width">
+            <tr>
+                <th></th>
+                <th colspan="4">
+                    <form action="/dashboard/rates/country?_method=DELETE" method="POST">
+                        <button class="ui small button">Delete table</button>
+                    </form>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    <h2><a href="#" class="ui button basic yellow">Create</a> standard rate by weight</h2>
+    <table class="ui yellow table">
+        <thead>
+            <tr>
+                <th>Weight(in kg)</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0 to 5</td>
+                <td>$8</td>
+            </tr>
+            <tr>
+                <td>6 to 14</td>
+                <td>$15</td>
+            </tr>
+            <tr>
+                <td>15 to 26</td>
+                <td>$26</td>
+            </tr>
+            <tr>
+                <td>27 to 45</td>
+                <td>$45</td>
+            </tr>
+            <tr>
+                <td>46 to 100</td>
+                <td>$72</td>
+            </tr>
+        </tbody>
+        <tfoot class="full-width">
+            <tr>
+                <th></th>
+                <th colspan="4">
+                    <form action="/dashboard/rates/weight?_method=DELETE" method="POST">
+                        <button class="ui small button">Delete table</button>
+                    </form>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+<% include ./partials/footer %>

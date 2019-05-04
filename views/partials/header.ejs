@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Courier website</title>
+        <!--Standard Meta-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        
+        <!--Semantic scripts-->
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        <link href="https://fonts.googleapis.com/css?family=Courgette|Roboto+Slab" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/app.css">
+    </header>
+    <body>
+        <div class="ui sidebar inverted right vertical menu">
+            <div class="ui container">
+                <% if(!currentUser){ %>
+                    <a href="/login" class="item">
+                        login
+                    </a>
+                    <a href="/register" class="item">
+                        register
+                    </a>
+                <% } else { %>
+                    <a id="username" href="#" class="item">
+                      <div id="name"><span id="welcome">Welcome,</span> <%=currentUser.username%> <span id="smile"><i class="smile outline icon"></i></span> </div>
+                    </a>
+                    <a href="/logout" class="item">
+                        logout
+                    </a>
+                <% } %>
+                <a href="/" class="item">
+                    Home
+                </a>
+                <a href="/deal" class="item">
+                  Wanna make a deal?
+                </a>
+                <a href="/blog" class="item">
+                  Read our blog posts
+                </a>
+                <a href="/about" class="item">
+                  About Us
+                </a>
+                <a href="#" class="item">
+                  Terms of Service
+                </a>
+                <a href="#" class="item">
+                  Got a suggestion for us?
+                </a>
+            </div>
+        </div>
+        <div id="header" class="ui fixed menu">
+            <div class="ui container">
+                <div class="header item">
+                    Courier
+                </div>
+                <div class="right menu">
+                    <a id="toggle" class="item">
+                        <i class="sidebar icon"></i>
+                        Menu
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pusher">
+        <div class="scale down">
+            <div class="ui container">
+                <div id="mess">
+                    <% if(error && error.length > 0) {%>
+                    <div class="ui error message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            <span><%=error%></span>
+                        </div>
+                    </div>
+                    <% } %>
+                    
+                    <% if(success && success.length > 0) {%>
+                    <div class="ui green message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            <span><%=success%></span>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>    
+                

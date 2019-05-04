@@ -1,0 +1,30 @@
+body {
+    background-color: #f7c0ec;
+}
+
+.fu {
+    font-size: 20px;
+    color: white;
+}
+
+#menuuu {
+    background-color: #a8b2f7;
+}
+
+#left-menu {
+    background-color: #8b97ef;
+}
+
+#dash, .dashhh {
+    margin-top: 3.5em;
+    margin-bottom: 2em;
+}
+
+#dashh {
+    margin-bottom: 3em;
+    /*display: none;*/
+}
+
+form {
+    display: inline;
+}

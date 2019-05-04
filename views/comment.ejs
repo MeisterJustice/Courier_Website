@@ -1,0 +1,14 @@
+<% include ./partials/header %>
+
+<div id="showComment" class="ui container">
+  <form id="showComment2" action="/blog/<%=blog._id%>/comments" method="POST" class="ui reply form">
+    <div class="field">
+      <textarea name="blog[text]"></textarea>
+    </div>
+    <button class="ui primary submit labeled icon button">
+      <i class="icon edit"></i> Add Comment
+    </button>
+  </form>
+</div>
+<% include ./partials/blogfooter2 %>
+<% include ./partials/footer %>
