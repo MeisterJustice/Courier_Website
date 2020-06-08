@@ -96,10 +96,6 @@ form button.fluid.ui.button.blue {
   background-image: url(https://source.unsplash.com/HNQtAXnQlKA);
   animation-delay: 30s; 
 }
-.slideshow li:nth-child(5) { 
-  background-image: url(https://source.unsplash.com/OGYIV5hDyHQ);
-  animation-delay: 40s; 
-}
 
 @keyframes imageAnimation { 
   0% { 
