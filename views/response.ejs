@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>US Military Courier</title>
+    <link rel="stylesheet" href="server.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <main>
+        <section class="advice">
+            <h1 class="advice__title mt-4 mt-sm-0">Site currently under maintenance</h1>
+            <p class="love"><span>
+                </span>Payment was unsuccessful, <div class="love">come back in</div>
+            </p>
+            <div>
+                <ul>
+                    <li><span id="days"></span>days</li>
+                    <li><span id="hours"></span>Hours</li>
+                    <div class="d-block d-sm-inline">
+                        <li><span id="minutes"></span>Min</li>
+                        <li><span id="seconds"></span>Sec</li>
+                    </div>
+                </ul>
+            </div>
+        </section>
+        <section class="city-stuff">
+            <ul class="skyscrappers__list">
+                <li class="skyscrapper__item skyscrapper-1"></li>
+                <li class="skyscrapper__item skyscrapper-2"></li>
+                <li class="skyscrapper__item skyscrapper-3"></li>
+                <li class="skyscrapper__item skyscrapper-4"></li>
+                <li class="skyscrapper__item skyscrapper-5"></li>
+            </ul>
+            <ul class="tree__container">
+                <li class="tree__list">
+                    <ul class="tree__item tree-1">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                    <ul class="tree__item tree-2">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                    <ul class="tree__item tree-3">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                    <ul class="tree__item tree-4">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                    <ul class="tree__item tree-5">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                    <ul class="tree__item tree-6">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                    <ul class="tree__item tree-7">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                    <ul class="tree__item tree-8">
+                        <li class="tree__trunk"></li>
+                        <li class="tree__leaves"></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="crane__list crane-1">
+                <li class="crane__item crane-cable crane-cable-1"></li>
+                <li class="crane__item crane-cable crane-cable-2"></li>
+                <li class="crane__item crane-cable crane-cable-3"></li>
+                <li class="crane__item crane-stand"></li>
+                <li class="crane__item crane-weight"></li>
+                <li class="crane__item crane-cabin"></li>
+                <li class="crane__item crane-arm"></li>
+            </ul>
+            <ul class="crane__list crane-2">
+                <li class="crane__item crane-cable crane-cable-1"></li>
+                <li class="crane__item crane-cable crane-cable-2"></li>
+                <li class="crane__item crane-cable crane-cable-3"></li>
+                <li class="crane__item crane-stand"></li>
+                <li class="crane__item crane-weight"></li>
+                <li class="crane__item crane-cabin"></li>
+                <li class="crane__item crane-arm"></li>
+            </ul>
+            <ul class="crane__list crane-3">
+                <li class="crane__item crane-cable crane-cable-1"></li>
+                <li class="crane__item crane-cable crane-cable-2"></li>
+                <li class="crane__item crane-cable crane-cable-3"></li>
+                <li class="crane__item crane-stand"></li>
+                <li class="crane__item crane-weight"></li>
+                <li class="crane__item crane-cabin"></li>
+                <li class="crane__item crane-arm"></li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
+        Date.prototype.addDays = function (days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+        var date = new Date();
+
+        var newDate = date.addDays(2);
+
+
+        let countDown = newDate.getTime(),
+            x = setInterval(function () {
+
+                let now = new Date().getTime(),
+                    distance = countDown - now;
+
+                document.getElementById('days').innerText = Math.floor(distance / (day)),
+                    document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+                    document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+                    document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+                //do something later when date is reached
+                //if (distance < 0) {
+                //  clearInterval(x);
+                //  'IT'S MY BIRTHDAY!;we'll
+                //}
+
+            }, second)
+    </script>
+</body>
+
+</html>

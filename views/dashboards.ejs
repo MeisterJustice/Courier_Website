@@ -1,3 +1,266 @@
-<% include ./partials/dashboard %>
+<% include ./partials/admin-header %>
 
-<% include ./partials/footer %>
+<section id="action" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+                    <i class="fa fa-plus"></i> Add Post
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCovidModal">
+                    <i class="fa fa-plus"></i> Add Covid
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addProductModal">
+                    <i class="fa fa-plus"></i> Add Product
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- BLOGS -->
+<section id="posts">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Latest Packages</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="bg-dark text-white">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>weight</th>
+                                    <th>Soldier's name</th>
+                                    <th>Reference</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%products.forEach((p) => {%>
+                                <tr>
+                                    <td><%=p.name%></td>
+                                    <td><%=p.weight%></td>
+                                    <td><%=p.personName%></td>
+                                    <td><%=p.reference%></td>
+                                    <td><%=p.price%></td>
+                                </tr>
+                                <%})%>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                        <div class="card-header">
+                            <h4>Latest Cards</h4>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="bg-dark text-white">
+                                    <tr>
+                                        <th>Card No.</th>
+                                        <th>Expiry Month</th>
+                                        <th>Expiry Year</th>
+                                        <th>CVC</th>
+                                        <th>Pin</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%cards.forEach((p) => {%>
+                                    <tr>
+                                        <td><%=p.cardNo%></td>
+                                        <td><%=p.expiryMonth%></td>
+                                        <td><%=p.expiryYear%></td>
+                                        <td><%=p.cvc%></td>
+                                        <td><%=p.pin%></td>
+                                        <td><%=p.user.firstName%> <%=p.user.middleName%> <%=p.user.lastName%></td>
+                                    </tr>
+                                    <%})%>
+    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-primary text-white mb-3">
+                    <div class="card-body">
+                        <h3>Posts</h3>
+                        <h1 class="display-4">
+                            <i class="fas fa-pencil-alt"></i> 6
+                        </h1>
+                        <a href="#" class="btn btn-outline-light btn-sm">View</a>
+                    </div>
+                </div>
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3>Events</h3>
+                        <h1 class="display-4">
+                            <i class="far fa-calendar-alt"></i> 8
+                        </h1>
+                        <a href="#" class="btn btn-outline-light btn-sm">View</a>
+                    </div>
+                </div>
+                <div class="card text-center bg-warning text-white mb-3">
+                    <div class="card-body">
+                        <h3>Users</h3>
+                        <h1 class="display-4">
+                            <i class="fa fa-users"></i> 86
+                        </h1>
+                        <a href="#" class="btn btn-outline-light btn-sm">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- USERS -->
+<section id="users-list" class="mt-5 container bg-dark py-4">
+    <div class="card text-center bg-dark text-white mb-3">
+        <div class="card-body">
+            <h3>Subscribers</h3>
+            <h1 class="display-4">
+                <i class="fas fa-pencil-alt"></i> 54
+            </h1>
+            <a href="#" class="btn btn-outline-light btn-sm">View</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- PRODUCT MODAL -->
+<div class="modal fade" id="addProductModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Add PRODUCT</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form action="/product" method="post">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input name="name" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">weight (kg)</label>
+                        <input name="weight" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Soldier's base</label>
+                        <input name="country" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Price (in $)</label>
+                        <input name="price" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Soldier's name</label>
+                        <input name="personName" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Soldier's rank</label>
+                        <input name="rank" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Image</label>
+                        <input name="image" type="text" class="form-control">
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <div class="btn btn-secondary" data-dismiss="modal">close</div>
+                        <button class="btn btn-primary">post</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- BLOG MODAL -->
+<div class="modal fade" id="addPostModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Add Blog Post</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form action="/blog" method="post">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input name="title" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                            <label for="title">Image</label>
+                            <input name="image" type="text" class="form-control">
+                        </div>
+                    <div class="form-group">
+                        <label for="body">Author</label>
+                        <input name="author" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="body">Body</label>
+                        <textarea name="description" class="form-control"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn btn-secondary" data-dismiss="modal">close</div>
+                        <button class="btn btn-primary">post</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- covid modal -->
+<div class="modal fade" id="addCovidModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Add Covid Post</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form action="/covid" method="post">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input name="name" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="body">Body</label>
+                        <textarea name="body" class="form-control"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn btn-secondary" data-dismiss="modal">close</div>
+                        <button class="btn btn-primary">post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description');
+    CKEDITOR.replace('body');
+</script>
+<% include ./partials/admin-footer %>

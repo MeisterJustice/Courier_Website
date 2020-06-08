@@ -1,0 +1,89 @@
+<% include ./partials/header %>
+
+
+<div style="padding-top: 50px" id="blogMain" class="ui main text">
+    <div class="ui centered nested stackable grid container">
+        <div style="background: white;" class="eleven wide column">
+            <div class="item">
+                <%if(product) {%>
+                <div class="image">
+                    <img class="ui rounded huge image" src="<%=product.image%>">
+                </div>
+                <div class="content">
+                    <br>
+                    <h2><%=product.name%></h2>
+                    <div>Type: Parcel</div>
+                    <h2 style="font-weight: bolder; font-size: 2em;">Shipping Cost: $ <%=product.price%></h2>
+                    <%if(currentUser) {%>
+                    <div>
+                        <a href="/product/<%=product._id%>/<%=currentUser.id%>/details"
+                            class="fluid ui orange big button">Continue to shipping details</a>
+                    </div>
+                    <%} else {%>
+                    <div>
+                        <a href="/product/<%=product._id%>/5ed9747fa77e36316bb38485/details"
+                            class="fluid ui orange big button">Continue to shipping details</a>
+                    </div>
+                    <%}%>
+                    <br>
+                    <div>
+                        <h4>PROMOTIONS</h4>
+                        <div><i style="color: rgb(28, 171, 238);" class="fas fa-2x fa-shield-alt"></i>
+                            Stay Safe, Go cashless with USPay
+                        </div>
+                        <div style="text-align: justify;"><i style="color: rgb(238, 164, 28); margin-top: 10px;" class="fas fa-2x fa-star"></i>
+                            Prime : Enjoy 20% discount on all parcels after your second shipping
+                        </div>
+                        <div><i style="color: rgb(225, 118, 252); margin-top: 10px;" class="fas fa-2x fa-blog"></i>
+                            Unlimited free delivery for soldier of the month
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <h4>ABOUT / DESCRIPTION</h4>
+                        <div>
+                            Package weight (kg) : <%=product.weight%>
+                </div>
+                <div style="margin-top: 10px;">
+                    Reference No. : <%=product.reference%>
+                </div>
+                <div style="margin-top: 10px;">
+                    Package Owner : <%=product.personName%>
+                </div>
+                <div style="margin-top: 10px;">
+                    Rank : <%=product.rank%>
+                </div>
+                <div style="margin-top: 10px;">
+                    Base : <%=product.country%>
+                </div>
+            </div>
+        </div>
+        <%} else {%>
+        <div class="ui placeholder segment">
+            <div class="ui icon header">
+                <i class="search icon"></i>
+                We don't have any package matching your query
+            </div>
+            <div class="inline">
+                <a href="/deal" class="ui primary button">back home</a>
+            </div>
+        </div>
+
+        <%}%>
+            </div>
+       </div>
+       <div class="five wide column">
+           <form action="/product/search" method="post">
+                <div class="ui fluid icon input loading">
+                   <input required type="text" placeholder="Search package...">
+                   <i class="search icon"></i>
+                </div>
+                <button class="ui grey huge button fluid">Check</button>
+           </form>
+       </div>
+    </div>
+</div>
+  
+<% include ./partials/blogfooter2 %>
+        <% include ./partials/footer %>

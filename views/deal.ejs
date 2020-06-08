@@ -1,89 +1,141 @@
 <% include ./partials/header %>
 <main id="main">
+    <div id="dealJombo" style="background: #1678C2; height: 30px; color: white; text-align: center; font-weight: bold;">
+        We are monitoring the impact of the COVID-19 outbreak. Stay connected with the latest services
+    </div>
     <div id="dealJombotron">
         <div class="ui stackable container grid">
             <div class="ten wide column">
                 <div id="stack" class="ui very huge header">
-                    <h1 id="trusted" class="header">Tested <span id="and">and</span> Trusted</h1>
+                    <h1 id="trusted" class="header">All you <span id="and">can</span> Be</h1>
                 </div>
                 <br>
                 <div class="item">
                     <div class="content centered">
-                        <div class="ui white description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna.</div>
+                        <div style="font-weight: bold; text-shadow: 1px 1px #fcfcfc;" class="ui white description">The US Military courier services is open 24/7 to <br>our soldiers and their loved ones</div>
                         <br>
                         <div class="extra">
-                            <a id="wrapper" href="/deal/shipping" class="ui huge primary animated button" tabindex="0">
-                                <div class="visible content">Find the best price</div>
-                                <div class="hidden content">
-                                    GO!
+                            <form action="/product/search" method="post">
+                                <div class="ui right aligned search">
+                                    <div class="fluid ui icon input">
+                                        <input required name="reference" class="prompt" type="text"
+                                            placeholder="PRODUCT ID...........Search package">
+                                        <i class="search icon"></i>
+                                    </div>
                                 </div>
-                            </a>
+                                <br>
+                                <button class="fluid ui button blue">Search Package</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="six wide social column">
-                <button id="social" class="ui circular facebook icon button">
+                <a href="https://web.facebook.com/USarmy/" target="_blank" id="social"
+                    class="ui circular facebook icon button">
                     <i class="facebook icon"></i>
-                </button>
-                <button class="ui circular twitter icon button">
+                </a>
+                <a href="https://twitter.com/USArmy" target="_blank" class="ui circular twitter icon button">
                     <i class="twitter icon"></i>
-                </button>
-                <button class="ui circular instagram icon button">
+                </a>
+                <a href="https://www.instagram.com/usarmy/" target="_blank" class="ui circular instagram icon button">
                     <i class="instagram icon"></i>
-                </button>
-                
-                <button class="ui circular linkedin icon button">
-                    <i class="linkedin icon"></i>
-                </button>
-                <button class="ui circular google plus icon button">
-                    <i class="google plus icon"></i>
-                </button>
-                <button class="ui circular youtube plus icon button">
-                    <i class="youtube icon"></i>
-                </button>
+                </a>
             </div>
         </div>
     </div>
-    
+    <br>
     <div class="container stackable ui grid">
         <div class="sixteen wide column">
             <div class="ui centered huge header">
-                <div class="header best">The best tracking system for you! <br>Never lose track</div>
+                <h1 style="color: #1678C2; font-size: 1.3em" class="header best">News and Update!</h1>
+                <h2 class="header best" style="color: black">How we're responding to COVID-19</h2>
             </div>
             <hr class="style-two">
-            <form class="ui form">
-                <div class="ui fluid action input">
-                    <input type="text" placeholder="Shipping Number; JUST10101010">
-                    <div>
-                        <a href="/deal/rate" class="ui animated button blue" tabindex="0">
-                        <div class="visible content">Track code</div>
-                        <div class="hidden content">
-                            <i class="right arrow icon"></i>
+        </div>
+        <br>
+        <div class="ui stackable grid">
+            <div class="four wide column">
+                <div class="ui raised centered card">
+                    <div class="content">
+                        <h3 class="header"><%=covid[0].name%></h3>
+                        <div class="meta">Posted March 7th, 2020</div>
+                        <div class="description">
+                            <%-covid[0].body.substring(0, 230)%> .......
                         </div>
-                        </a>
+                        <br>
+                        <a href="/covid/<%=covid[0].id%>">View more</a>
                     </div>
                 </div>
-            </form>
+            </div>
+            <div class="four wide column">
+                <div class="ui raised centered card">
+                    <div class="content">
+                        <h3 class="header"><%=covid[1].name%></h3>
+                        <div class="meta">Posted March 27th, 2020</div>
+                        <div class="description">
+                            <%-covid[1].body.substring(0, 230)%> .......
+                        </div>
+                        <br>
+                        <a href="/covid/<%=covid[1].id%>">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui raised centered card">
+                    <div class="content">
+                        <h3 class="header"><%=covid[2].name%></h3>
+                        <div class="meta">Posted April 2nd, 2020</div>
+                        <div class="description">
+                            <%-covid[2].body.substring(0, 230)%> .......
+                        </div>
+                        <br>
+                        <a href="/covid/<%=covid[2].id%>">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui raised centered card">
+                    <div class="content">
+                        <h3 class="header"><%=covid[3].name%></h3>
+                        <div class="meta">Posted May 13th, 2020</div>
+                        <div class="description">
+                            <%-covid[3].body.substring(0, 230)%> .......
+                        </div>
+                        <br>
+                        <a href="/covid/<%=covid[3].id%>">View more</a>
+                    </div>
+
+                </div>
+            </div>
         </div>
         <div class="sixteen wide column">
-            <div class="ui centered huge header">
-                <div class="header best">State of the art price list calculator for every need</div>
+            <div style="margin-top: 10px" class="ui centered huge header">
+                <h1 style="color: #1678C2; font-size: 1.3em" class="header best">Our blog posts guide soldiers and
+                    customers <div style="color: black; font-size: 25px">on shipping best practices</div>
+                </h1>
             </div>
             <hr class="style-two">
             <div class="item">
                 <div class="content">
                     <div class="extra">
-                        <div class="prize">Lorem ipsum dolor sit amet, sed do eiusmod labore et dolore magna aliqua.<br>Ut enim ad minim exercitation ex ea commodo consequat<br>in reprehenderit in voluptate velit</div>
+                        <div class="prize">At US military, we strive to make our brothers and sisters in arms feel at
+                            home while serving<br>and be able to send parcels to family and loved ones without having to
+                            wait for the end of one's service
+                            <br>
+                            That's the sole purpose this iniative was implemented and with time, we've come to compile
+                            <br>
+                            a list of ways soldiers can use this platform with ease
+                        </div>
                     </div>
                 </div>
             </div>
             <br>
             <div class="ii" id="fade">
-                <a id="a" href="/deal/rates" class="ui blue huge animated fade button" tabindex="0">
-                    <div class="visible content">Check the best rate</div>
+                <a id="a" href="/blog" class="ui blue huge animated fade button" tabindex="0">
+                    <div class="visible content">Check blog page</div>
                     <div class="hidden content">
-                        $7.99?
+                        go?
                     </div>
                 </a>
             </div>
@@ -98,26 +150,30 @@
                     </div>
                 </div>
             </div>
-            <div class="four wide column hrr" data-tooltip="The best location tracker to serve you better" data-variation="basic">
-                <img class="ui centered small image" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/traveling_t8y2.svg">
+            <div class="four wide column hrr" data-tooltip="The best location tracker to serve you better"
+                data-variation="basic">
+                <img class="ui centered small image"
+                    src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/traveling_t8y2.svg">
             </div>
             <div class="four wide column" data-tooltip="Neat packaging" data-variation="basic">
-                <img class="ui centered small image" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/deliveries_131a.svg">
+                <img class="ui centered small image"
+                    src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/deliveries_131a.svg">
             </div>
             <div class="four wide column" data-tooltip="Skilled and experienced operators" data-variation="basic">
-                <img class="ui centered small image" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/logistics_x4dc.svg">
+                <img class="ui centered small image"
+                    src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/logistics_x4dc.svg">
             </div>
-            <div class="four wide column" data-tooltip="Get delivered in your home" data-variation="basic">
-                <img class="ui centered small image" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/house_searching_n8mp.svg">
+            <div class="four wide column" data-tooltip="Get delivered to your home" data-variation="basic">
+                <img class="ui centered small image"
+                    src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/house_searching_n8mp.svg">
             </div>
         </div>
         <div class="ui stackable grid">
             <div class="sixteen wide column">
+                <h1 style="margin-top: 10px !important;" class="ui header centered">Our Troops, Our pride</h1>
                 <div id="player-overlay">
-                    <iframe id="existing-iframe-example"
-                        width="100%" height="400"
-                        src="https://www.youtube.com/embed/zNkvxxJIVTE?enablejsapi=1"
-                        frameborder="0">
+                    <iframe id="existing-iframe-example" width="100%" height="400"
+                        src="https://www.youtube.com/embed/unHaJLuFNfA?enablejsapi=1" frameborder="0">
                     </iframe>
                 </div>
             </div>
@@ -125,7 +181,7 @@
         <div class="ui container stackable grid">
             <div class="eight wide column">
                 <div class="fast">
-                   <i class="fas fa-shipping-fast"></i> 
+                    <i class="fas fa-shipping-fast"></i>
                 </div>
                 <div class="ui centered huge header">
                     <div class="header">
@@ -134,13 +190,14 @@
                 </div>
                 <div class="ui centered content">
                     <div class="extra">
-                        <div class="fastt">Nam liber tempor cum soluta nobi eleifend<br>option congue nihil imper per tem por legere<br>eleifend legere me doming.</div>
+                        <div class="fastt">3 days max for delivery to North and South American countries<br>and an
+                            additional 3 days to other countries</div>
                     </div>
                 </div>
             </div>
             <div class="eight wide column">
                 <div class="fast">
-                   <i class="fas fa-handshake"></i> 
+                    <i class="fas fa-handshake"></i>
                 </div>
                 <div class="ui centered huge header">
                     <div class="header">
@@ -149,13 +206,15 @@
                 </div>
                 <div class="ui centered content">
                     <div class="extra">
-                        <div class="fastt">Nam liber tempor cum soluta nobi eleifend<br>option congue nihil imper per tem por legere<br>eleifend legere me doming.</div>
+                        <div class="fastt">We strive to serve the US military men and women reliably<br>option congue
+                            nihil imper per
+                            and leave no room for setbacks</div>
                     </div>
                 </div>
             </div>
             <div class="eight wide column">
                 <div class="fast">
-                   <i class="fas fa-comments"></i>
+                    <i class="fas fa-comments"></i>
                 </div>
                 <div class="ui centered huge header">
                     <div class="header">
@@ -164,13 +223,14 @@
                 </div>
                 <div class="ui centered content">
                     <div class="extra">
-                        <div class="fastt">Nam liber tempor cum soluta nobi eleifend<br>option congue nihil imper per tem por legere<br>eleifend legere me doming.</div>
+                        <div class="fastt">Through sending of emails and calling when it's neccessary<br>we make sure
+                            communication isn't a problem for our customers</div>
                     </div>
                 </div>
             </div>
             <div class="eight wide column">
                 <div class="fast">
-                   <i class="fas fa-check-double"></i>
+                    <i class="fas fa-check-double"></i>
                 </div>
                 <div class="ui centered huge header">
                     <div class="header">
@@ -179,115 +239,13 @@
                 </div>
                 <div class="ui centered content">
                     <div class="extra">
-                        <div class="fastt">Nam liber tempor cum soluta nobi eleifend<br>option congue nihil imper per tem por legere<br>eleifend legere me doming.</div>
+                        <div class="fastt">Shipping through the US Military courier services is the safest method of shipping<br>option congue nihil imper per
+                            one can think of </div>
                     </div>
                 </div>
             </div>
         </div>
-                <div class="ui people shape">
-                    <div class="sides">
-                        <div class="side">
-                            <div class="ui card">
-                                <div class="image">
-                                    <img src="https://www.persofoto.com/images/vorher-nachher/passfoto-beispiel-nachher.jpg">
-                                </div>
-                                <div class="content">
-                                    <div class="header">Steve Jobes</div>
-                                    <div class="meta">
-                                        <a>Acquaintances</a>
-                                    </div>
-                                    <div class="description">
-                                        Steve Jobes is a fictional character designed to resemble someone familiar to readers.
-                                    </div>
-                                </div>
-                                <div class="extra content">
-                                    <span class="right floated">
-                                        Joined in 2014
-                                    </span>
-                                    <span>
-                                        <i class="user icon"></i>
-                                            151 Friends
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="side">
-                            <div class="ui card">
-                                <div class="image">
-                                    <img src="/images/avatar/large/steve.jpg">
-                                </div>
-                                <div class="content">
-                                    <div class="header">Steve Jobes</div>
-                                    <div class="meta">
-                                        <a>Acquaintances</a>
-                                    </div>
-                                    <div class="description">
-                                        Steve Jobes is a fictional character designed to resemble someone familiar to readers.
-                                    </div>
-                                </div>
-                                <div class="extra content">
-                                    <span class="right floated">
-                                        Joined in 2014
-                                    </span>
-                                    <span>
-                                        <i class="user icon"></i>
-                                            151 Friends
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="side">
-                            <div class="ui card">
-                                <div class="image">
-                                    <img src="/images/avatar/large/steve.jpg">
-                                </div>
-                                <div class="content">
-                                    <div class="header">Steve Jobes</div>
-                                    <div class="meta">
-                                        <a>Acquaintances</a>
-                                    </div>
-                                    <div class="description">
-                                        Steve Jobes is a fictional character designed to resemble someone familiar to readers.
-                                    </div>
-                                </div>
-                                <div class="extra content">
-                                    <span class="right floated">
-                                        Joined in 2014
-                                    </span>
-                                    <span>
-                                        <i class="user icon"></i>
-                                            151 Friends
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="side">
-                            <div class="ui card">
-                                <div class="image">
-                                    <img src="/images/avatar/large/steve.jpg">
-                                </div>
-                                <div class="content">
-                                    <div class="header">Steve Jobes</div>
-                                    <div class="meta">
-                                        <a>Acquaintances</a>
-                                    </div>
-                                    <div class="description">
-                                        Steve Jobes is a fictional character designed to resemble someone familiar to readers.
-                                    </div>
-                                </div>
-                                <div class="extra content">
-                                    <span class="right floated">
-                                        Joined in 2014
-                                    </span>
-                                    <span>
-                                        <i class="user icon"></i>
-                                            151 Friends
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        
     </section>
 </main>
 

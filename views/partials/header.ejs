@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <header>
-        <title>Courier website</title>
+        <title>US Military courier website</title>
         <!--Standard Meta-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <meta charset="utf-8" />
@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="/app.css">
     </header>
     <body>
-        <div class="ui sidebar inverted right vertical menu">
+        <div class="ui thin sidebar inverted right vertical menu">
             <div class="ui container">
                 <% if(!currentUser){ %>
                     <a href="/login" class="item">
@@ -28,37 +28,31 @@
                     </a>
                 <% } else { %>
                     <a id="username" href="#" class="item">
-                      <div id="name"><span id="welcome">Welcome,</span> <%=currentUser.username%> <span id="smile"><i class="smile outline icon"></i></span> </div>
+                      <div id="name"><span id="welcome">Welcome,</span> <%=currentUser.firstName%></div>
                     </a>
                     <a href="/logout" class="item">
                         logout
                     </a>
                 <% } %>
-                <a href="/" class="item">
-                    Home
-                </a>
                 <a href="/deal" class="item">
-                  Wanna make a deal?
+                    home
                 </a>
                 <a href="/blog" class="item">
-                  Read our blog posts
+                  blog
                 </a>
                 <a href="/about" class="item">
-                  About Us
+                  about
                 </a>
-                <a href="#" class="item">
-                  Terms of Service
-                </a>
-                <a href="#" class="item">
-                  Got a suggestion for us?
+                <a href="/terms" class="item">
+                  terms of Service
                 </a>
             </div>
         </div>
         <div id="header" class="ui fixed menu">
             <div class="ui container">
-                <div class="header item">
+                <a href="/deal" class="header item">
                     Courier
-                </div>
+                </a>
                 <div class="right menu">
                     <a id="toggle" class="item">
                         <i class="sidebar icon"></i>
@@ -72,7 +66,7 @@
             <div class="ui container">
                 <div id="mess">
                     <% if(error && error.length > 0) {%>
-                    <div class="ui error message">
+                    <div class="ui error message transition">
                         <i class="close icon"></i>
                         <div class="header">
                             <span><%=error%></span>
@@ -81,7 +75,7 @@
                     <% } %>
                     
                     <% if(success && success.length > 0) {%>
-                    <div class="ui green message">
+                    <div class="ui green message transition">
                         <i class="close icon"></i>
                         <div class="header">
                             <span><%=success%></span>

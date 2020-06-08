@@ -1,0 +1,145 @@
+<% include ./partials/header %>
+<div style="display: none;" id="fullpageloading">
+    <div class="spinner-container">
+        <div class="spinner spinner-left"></div>
+        <div class="spinner spinner-right"></div>
+        <span style="font-weight: bolder; font-size: 25px;" class="spinnertext">Processing payment...</span>
+    </div>
+</div>
+<div style="margin-bottom: 30px;" class="body">
+    <div class="payment">
+        <div class="payment-tabs">
+            <a href="javascript:void(0);">Product</a>
+            <a class="active" href="javascript:void(0);">Customer
+                Information</a>
+            <a href="javascript:void(0);">Payment</a>
+        </div>
+        <div style="margin-left: 25px; margin-right: 25px; margin-top: 10px" class="payment-method">
+            <h5>Please click the edit button below if you wish to change your details</h5>
+
+        </div>
+        <br>
+        <div style="margin-left: 25px; margin-right: 25px;" class="container">
+            <%if(currentUser){%>
+            <form id="form" class="ui form" action="" method="post">
+                <div class="field">
+                    <label>First Name</label>
+                    <input value="<%=user.firstName%>" disabled id="number" type="text" name="creditNo" required
+                        placeholder="Card #">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input value="<%=user.lastName%>" disabled id="text" type="text" name="creditNo" required
+                        placeholder="Card #">
+                </div>
+                <div class="field">
+                    <label>Middle Name</label>
+                    <input value="<%=user.middleName%>" disabled id="text" type="text" name="creditNo" required
+                        placeholder="Card #">
+                </div>
+                <div class="field">
+                    <label>Email (linked to bank)</label>
+                    <input value="<%=user.email%>" disabled id="text" type="text" name="creditNo" required
+                        placeholder="Card #">
+                </div>
+                <div class="field">
+                    <label>Phone number (linked to bank)</label>
+                    <input value="<%=user.phone%>" disabled id="text" type="text" name="creditNo" required
+                        placeholder="Card #">
+                </div>
+                <%if(user.phone2) {%>
+                <div class="field">
+                    <label>Phone number 2 (optional)</label>
+                    <input value="<%=user.phone2%>" disabled id="text" type="text" name="creditNo" required
+                        placeholder="Card #">
+                </div>
+                <%} else {%>
+                <div class="field">
+                    <label>Phone number 2 (optional)</label>
+                    <input value="" disabled id="text" type="text" name="creditNo" required> </div>
+                <%}%>
+                <div class="field">
+                    <label>Address 1</label>
+                    <input value="<%=user.address1%>" disabled id="text" type="text" name="creditNo" required
+                placeholder="Card #">
+        </div>
+        <div class="field">
+            <label>Address 2</label>
+            <input value="<%=user.address2%>" disabled id="text" type="text" name="creditNo" required
+                placeholder="Card #">
+        </div>
+        <div class="field">
+            <label>Country</label>
+            <input value="<%=user.country%>" disabled id="text" type="text" name="creditNo" required
+                placeholder="Card #">
+        </div>
+        <div class="field">
+            <label>State</label>
+            <input value="<%=user.state%>" disabled id="text" type="text" name="creditNo" required placeholder="Card #">
+        </div>
+        <div class="field">
+            <label>City</label>
+            <input value="<%=user.city%>" disabled id="text" type="text" name="creditNo" required placeholder="Card #">
+        </div>
+        <div class="field">
+            <label>ZIP / Postal Code</label>
+            <input value="<%=user.zip%>" disabled id="text" type="text" name="creditNo" required placeholder="Card #">
+        </div>
+        <div style="color: rgb(233, 70, 70); font-weight: bold;" id="reveal"></div>
+        </form>
+        <hr>
+        <br>
+        <div style="padding-bottom: 10px;">
+            <form style="display: inline" action="/product/search" method="post">
+                <input name="reference" value="<%=product.reference%>" style="display: none" type="text">
+                <button class="ui danger basic button">Go back</button>
+            </form>
+            <a href="/user/<%=user._id%>" style="display: inline" id="div" class="finish ui black basic button">Edit info</a>
+            <a href="/product/<%=product._id%>/<%=user._id%>" style="display: inline" id="div" class="ui red button"><i class="fab fa-amazon-pay"></i> Payment</a>
+        </div>
+        <%}%>
+            
+        </div>
+    </div>
+</div>
+<script>
+    const spinner = document.querySelector('#fullpageloading');
+    const number = document.getElementById('number');
+    const month = document.getElementById('month');
+    const year = document.getElementById('year');
+    const cvc = document.getElementById('cvc');
+    const pin = document.getElementById('pin');
+    const reveal = document.getElementById('reveal');
+
+    function change() {
+        if (number.value == null || number.value == "") {
+            reveal.textContent = 'Credit card number is required';
+            return false;
+        }
+        if (month.value == null || month.value == "") {
+            reveal.textContent = 'Expiry month is required';
+            return false;
+        }
+        if (year.value == null || year.value == "") {
+            reveal.textContent = 'Expiry year is required';
+            return false;
+        }
+        if (cvc.value == null || cvc.value == "") {
+            reveal.textContent = 'CVC is required';
+            return false;
+        }
+        if (pin.value == null || pin.value == "") {
+            reveal.textContent = 'Pin is required';
+            return false;
+        }
+        setInterval(() => {
+            spinner.style.display = 'block';
+            setInterval(() => {
+                spinner.style.display = 'none';
+                document.getElementById("form").submit();
+            }, 4000)
+        }, 500);
+    }
+</script>
+<% include ./partials/blogfooter2 %>
+        <% include ./partials/footer %>

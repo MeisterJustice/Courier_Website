@@ -7,56 +7,26 @@ var express           = require("express"),
     middleware        = require("../middleware/index");
 
 // BLOG PAGE ROUTE=======================================
-router.get("/blog", function(req, res){
-   Blog.find({}, function(err, blogs){
-      if(err){
-         res.redirect("back");
-      } else{
-         res.render("blog", {blogs: blogs});
-      }
-   });
-});
+
+router.get('/blog', async (req, res)=> {
+   let blog = await Blog.find({});
+   res.render("blog", {blog});
+})
 
 router.get("/blog/:id", function(req, res) {
-   Blog.findById(req.params.id).populate("comments").exec(function(err, foundBlog){
+   Blog.findById(req.params.id).populate("comments").exec(function(err, blog){
       if(err){
          res.redirect("back");
       } else{
-         res.render("show", {blog: foundBlog});
+         res.render("show", {blog: blog});
       }
    });
 });
 
-// Edit route
-router.get("/blog/:id/edit", middleware.isLoggedIn, function(req, res) {
-   Blog.findById(req.params.id, function(err, editBlog){
-      if(err){
-         res.redirect("back");
-      } else{
-         res.render("edit", {blog: editBlog});
-      }
-   }); 
-});
+router.post('/blog', async (req, res) => {
+   let blog = await Blog.create(req.body);
 
-router.put("/blog/:id", function(req, res){
-   req.body.blog.description = req.sanitize(req.body.blog.description);
-   Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, blog){
-      if(err){
-         res.redirect("back");
-      } else{
-         res.redirect("/blog/" + req.params.id);
-      }
-   });
-});
-
-router.delete("/blog/:id", function(req, res){
-   Blog.findByIdAndRemove(req.params.id, function(err){
-      if(err) {
-         res.redirect("back");
-      } else {
-         res.redirect("/blog");
-      }
-   });
-});
+   res.redirect('/admin');
+})
 
 module.exports = router;
