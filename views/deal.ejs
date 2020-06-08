@@ -12,7 +12,8 @@
                 <br>
                 <div class="item">
                     <div class="content centered">
-                        <div style="font-weight: bold; text-shadow: 1px 1px #fcfcfc;" class="ui white description">The US Military courier services is open 24/7 to <br>our soldiers and their loved ones</div>
+                        <div style="font-weight: bold; text-shadow: 1px 1px #fcfcfc;" class="ui white description">The
+                            US Military courier services is open 24/7 to <br>our soldiers and their loved ones</div>
                         <br>
                         <div class="extra">
                             <form action="/product/search" method="post">
@@ -55,8 +56,10 @@
         </div>
         <br>
         <div class="ui stackable grid">
+            <%if(covid){%>
             <div class="four wide column">
                 <div class="ui raised centered card">
+
                     <div class="content">
                         <h3 class="header"><%=covid[0].name%></h3>
                         <div class="meta">Posted March 7th, 2020</div>
@@ -68,6 +71,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="four wide column">
                 <div class="ui raised centered card">
                     <div class="content">
@@ -108,6 +112,7 @@
 
                 </div>
             </div>
+            <%}%>
         </div>
         <div class="sixteen wide column">
             <div style="margin-top: 10px" class="ui centered huge header">
@@ -251,5 +256,5 @@
 
 
 <% include ./partials/blogfooter %>
-<% include ./partials/blogfooter2 %>
-<% include ./partials/footer %>
+            <% include ./partials/blogfooter2 %>
+            <% include ./partials/footer %>
