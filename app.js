@@ -26,10 +26,18 @@ var dashboardRoutes = require("./routes/dashboard"),
     covidRoutes = require('./routes/covid');
 
 
-mongoose.connect("mongodb://localhost:27017/justice_courier", { 
+// mongoose.connect("mongodb://localhost:27017/justice_courier", { 
+//     useNewUrlParser: true , 
+//     useUnifiedTopology: true,
+//     useCreateIndex: true
+// });
+
+mongoose.connect("mongodb+srv://friday:wiseman@cluster0-cr5cs.mongodb.net/<friday>?retryWrites=true&w=majority", { 
     useNewUrlParser: true , 
     useUnifiedTopology: true,
     useCreateIndex: true
+}, () => {
+    console.log('db connected')
 });
 
 
