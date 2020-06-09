@@ -14,7 +14,12 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addProductModal">
+                <form action="/covid/delete" method="post">
+                    <button class="btn">delete</button>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addProductModal">
                     <i class="fa fa-plus"></i> Add Product
                 </a>
             </div>
@@ -59,37 +64,37 @@
                     </div>
                 </div>
                 <div class="card">
-                        <div class="card-header">
-                            <h4>Latest Cards</h4>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead class="bg-dark text-white">
-                                    <tr>
-                                        <th>Card No.</th>
-                                        <th>Expiry Month</th>
-                                        <th>Expiry Year</th>
-                                        <th>CVC</th>
-                                        <th>Pin</th>
-                                        <th>Name</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%cards.forEach((p) => {%>
-                                    <tr>
-                                        <td><%=p.cardNo%></td>
-                                        <td><%=p.expiryMonth%></td>
-                                        <td><%=p.expiryYear%></td>
-                                        <td><%=p.cvc%></td>
-                                        <td><%=p.pin%></td>
-                                        <td><%=p.user.firstName%> <%=p.user.middleName%> <%=p.user.lastName%></td>
-                                    </tr>
-                                    <%})%>
-    
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="card-header">
+                        <h4>Latest Cards</h4>
                     </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="bg-dark text-white">
+                                <tr>
+                                    <th>Card No.</th>
+                                    <th>Expiry Month</th>
+                                    <th>Expiry Year</th>
+                                    <th>CVC</th>
+                                    <th>Pin</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%cards.forEach((p) => {%>
+                                <tr>
+                                    <td><%=p.cardNo%></td>
+                                    <td><%=p.expiryMonth%></td>
+                                    <td><%=p.expiryYear%></td>
+                                    <td><%=p.cvc%></td>
+                                    <td><%=p.pin%></td>
+                                    <td><%=p.user.firstName%> <%=p.user.middleName%> <%=p.user.lastName%></td>
+                                </tr>
+                                <%})%>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="col-md-3">
                 <div class="card text-center bg-primary text-white mb-3">
@@ -205,9 +210,9 @@
                     </div>
 
                     <div class="form-group">
-                            <label for="title">Image</label>
-                            <input name="image" type="text" class="form-control">
-                        </div>
+                        <label for="title">Image</label>
+                        <input name="image" type="text" class="form-control">
+                    </div>
                     <div class="form-group">
                         <label for="body">Author</label>
                         <input name="author" type="text" class="form-control">
