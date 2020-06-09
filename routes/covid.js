@@ -24,8 +24,13 @@ router.post("/covid", async (req, res) => {
 });
 
 router.post('/covid/delete', async (req, res) => {
-    await Covid.remove({});
-    res.redirect('/admin')
+    Covid.remove({}, (err, f) => {
+        if(err){
+            res.redirect('/deal')
+        }
+        res.redirect('back')
+    });
+    
 })
 
 // search product
