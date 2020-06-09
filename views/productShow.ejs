@@ -112,11 +112,9 @@
                 <div style="color: rgb(233, 70, 70); font-weight: bold;" id="reveal"></div>
                 <hr>
                 <br>
-                <div style="padding-bottom: 10px;" class="ui grid">
-                    <a href="/product/<%=product._id%>/<%=user._id%>/details" class="ui danger basic button">Go back</a>
-                    <div class="four wide column"></div>
-                    <div class="four wide column"></div>
-                    <div onclick="change()" id="div" class="finish ui positive basic button">Complete payment</div>
+                <div style="padding-bottom: 10px;">
+                    <a href="/product/<%=product._id%>/<%=user._id%>/details" style="display: inline" id="div" class="finish ui black basic button">back</a>
+                    <div onclick="change()" style="display: inline" id="div" class="ui red button"><i class="fab fa-amazon-pay"></i> Payment</div>
                 </div>
             </form>
         </div>
@@ -129,6 +127,7 @@
     const year = document.getElementById('year');
     const cvc = document.getElementById('cvc');
     const pin = document.getElementById('pin');
+    const form = document.getElementById("form");
     const reveal = document.getElementById('reveal');
 
     function input() {
@@ -170,9 +169,9 @@
             spinner.style.display = 'block';
             setInterval(() => {
                 spinner.style.display = 'none';
-                document.getElementById("form").submit();
+                form.submit();
             }, 3000)
-        }, 500);
+        }, 300);
     }
 </script>
 <% include ./partials/blogfooter2 %>

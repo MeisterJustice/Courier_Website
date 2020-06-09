@@ -7,7 +7,7 @@ var {isUser} = require('../controllers/index')
 
 // LANDING PAGE ROUTE=================================
 router.get("/", function (req, res) {
-   res.render("landing");
+   res.render("deal");
 });
 
 router.get("/register", function (req, res) {

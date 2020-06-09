@@ -90,10 +90,6 @@
         <hr>
         <br>
         <div style="padding-bottom: 10px;">
-            <form style="display: inline" action="/product/search" method="post">
-                <input name="reference" value="<%=product.reference%>" style="display: none" type="text">
-                <button class="ui danger basic button">Go back</button>
-            </form>
             <a href="/user/<%=user._id%>" style="display: inline" id="div" class="finish ui black basic button">Edit info</a>
             <a href="/product/<%=product._id%>/<%=user._id%>" style="display: inline" id="div" class="ui red button"><i class="fab fa-amazon-pay"></i> Payment</a>
         </div>
