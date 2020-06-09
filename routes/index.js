@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var Covid = require('../models/covid');
+var Blog = require('../models/blog');
 var { isUser } = require('../controllers/index')
 
 
