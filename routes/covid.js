@@ -24,7 +24,7 @@ router.post("/covid", async (req, res) => {
 });
 
 router.post('/covid/delete', async (req, res) => {
-    Covid.remove({}, (err, f) => {
+    Covid.deleteMany({}, (err, f) => {
         if(err){
             res.redirect('/deal')
         }
