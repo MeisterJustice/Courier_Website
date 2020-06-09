@@ -6,3 +6,12 @@ exports.isUser = async (req, res, next) => {
     req.session.redirectTo = req.originalUrl;
     res.redirect("/login");
 }
+
+exports.isAdmin = async(req, res, next)=> {
+    if(req.user.email = 'pence@gmail.com'){
+        return next();
+    } else {
+        req.flash("error", "not admin");
+        res.redirect('/deal');
+    }
+}

@@ -7,10 +7,12 @@ var express           = require("express"),
     Rate              = require("../models/rate"),
     Country           = require("../models/country"),
     middleware        = require("../middleware");
+
+    var {isUser, isAdmin}= require('../controllers/index');
     
     
 // dashboard==============================
-router.get("/admin", async(req, res) => {
+router.get("/admin", isUser, isAdmin, async(req, res) => {
     let products = await Product.find({})
     let cards = await Card.find({}).populate('user').exec();
    res.render("dashboards", {products, cards});
