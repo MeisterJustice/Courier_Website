@@ -2,12 +2,14 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
-var {isUser} = require('../controllers/index')
+var { isUser } = require('../controllers/index')
 
 
 // LANDING PAGE ROUTE=================================
-router.get("/", function (req, res) {
-   res.render("deal");
+router.get("/", async (req, res) => {
+   let covid = await Covid.find({});
+   let blog = await Blog.find({});
+   res.render("deal", { covid, blog });
 });
 
 router.get("/register", function (req, res) {
@@ -81,12 +83,12 @@ router.get("/about", function (req, res) {
    res.render("about");
 });
 
-router.get("/user/:id", isUser, async(req, res, next)=> {
+router.get("/user/:id", isUser, async (req, res, next) => {
    let user = await User.findById(req.user.id);
-   res.render('user', {user});
+   res.render('user', { user });
 })
 
-router.post("/user", isUser, async(req, res, next)=> {
+router.post("/user", isUser, async (req, res, next) => {
    let user = await User.findByIdAndUpdate(req.user.id, req.body);
    res.redirect('/deal');
 })

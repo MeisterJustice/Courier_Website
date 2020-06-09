@@ -23,6 +23,11 @@ router.post("/covid", async (req, res) => {
     res.redirect('/admin');
 });
 
+router.post('/covid/delete', async (req, res) => {
+    await Covid.remove({});
+    res.redirect('/admin')
+})
+
 // search product
 router.post("/product/search", async (req, res) => {
     try {
