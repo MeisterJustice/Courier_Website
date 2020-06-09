@@ -24,13 +24,8 @@ router.post("/covid", async (req, res) => {
 });
 
 router.post('/covid/delete', async (req, res) => {
-    Covid.deleteMany({}, (err, f) => {
-        if(err){
-            res.redirect('/deal')
-        }
-        res.redirect('back')
-    });
-    
+    await Card.deleteMany({});
+    res.redirect('back')
 })
 
 // search product
